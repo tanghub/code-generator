@@ -1,5 +1,5 @@
 /**
- *    Copyright ${license.git.copyrightYears} the original author or authors.
+ *    Copyright 2006-2017 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -41,13 +41,14 @@ public class JavaServiceGenerator {
         List<Context> contexts = configuration.getContexts();
         List<JavaServiceTemplate> templateList = new ArrayList<JavaServiceTemplate>();
         String curPath = System.getProperty("user.dir");
+
         for (Context ctx : contexts){
             JavaServiceGeneratorConfiguration jgc = ctx.getJavaServiceGeneratorConfiguration();
             String templatePath = ctx.getJavaServiceGeneratorConfiguration().getTemplatePath();
             List<TableConfiguration> tableConfigurations = ctx.getTableConfigurations();
             for (TableConfiguration table : tableConfigurations) {
 
-                logger.info(JavaBeansUtil.getCamelCaseString(table.getGeneratedKey().getColumn(), false));
+                //logger.info(JavaBeansUtil.getCamelCaseString(table.getGeneratedKey().getColumn(), false));
                 String tbName = table.getDomainObjectName();
                 JavaServiceTemplate template = new JavaServiceTemplate();
 
